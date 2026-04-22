@@ -4,8 +4,8 @@ import httpx
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 
-from app.config import get_settings
-from app.services.posture_service import proxy_posture_predict, proxy_posture_predict_test
+from config import get_settings
+from services.posture_service import proxy_posture_predict, proxy_posture_predict_test
 
 router = APIRouter(prefix='/posture', tags=['posture'])
 

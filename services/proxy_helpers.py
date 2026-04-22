@@ -7,7 +7,7 @@ from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse, StreamingResponse
 from starlette.background import BackgroundTask
 
-from app.config import get_settings
+from config import get_settings
 
 HOP_BY_HOP_HEADERS = {
     "connection",

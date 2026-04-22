@@ -4,8 +4,8 @@ import httpx
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 
-from app.config import get_settings
-from app.services.handwriting_service import proxy_handwriting_analyze, proxy_handwriting_predict
+from config import get_settings
+from services.handwriting_service import proxy_handwriting_analyze, proxy_handwriting_predict
 
 router = APIRouter(prefix='/handwriting', tags=['handwriting'])
 

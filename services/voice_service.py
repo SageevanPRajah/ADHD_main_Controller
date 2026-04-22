@@ -3,8 +3,8 @@ from __future__ import annotations
 from fastapi import Request
 from fastapi.responses import JSONResponse
 
-from app.config import get_settings
-from app.services.proxy_helpers import forward_form_with_files
+from config import get_settings
+from services.proxy_helpers import forward_form_with_files
 
 
 async def proxy_voice_analyze(request: Request) -> JSONResponse:

@@ -42,7 +42,7 @@ pip install -r requirements.txt
 ## Run
 
 ```bash
-uvicorn app.main:app --reload --port 8000
+uvicorn main:app --reload
 ```
 
 ## Optional environment variables

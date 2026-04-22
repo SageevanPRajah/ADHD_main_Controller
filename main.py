@@ -3,11 +3,11 @@ from __future__ import annotations
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-from app.config import get_settings
-from app.routers.eye import router as eye_router
-from app.routers.handwriting import router as handwriting_router
-from app.routers.posture import router as posture_router
-from app.routers.voice import router as voice_router
+from config import get_settings
+from routers.eye import router as eye_router
+from routers.handwriting import router as handwriting_router
+from routers.posture import router as posture_router
+from routers.voice import router as voice_router
 
 settings = get_settings()
 
