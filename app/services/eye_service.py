@@ -3,8 +3,8 @@ from __future__ import annotations
 from fastapi import Request
 from fastapi.responses import JSONResponse, StreamingResponse
 
-from config import get_settings
-from services.proxy_helpers import forward_form_with_files, forward_json, forward_stream
+from app.config import get_settings
+from app.services.proxy_helpers import forward_form_with_files, forward_json, forward_stream
 
 
 async def proxy_eye_analyze_session(request: Request) -> JSONResponse:

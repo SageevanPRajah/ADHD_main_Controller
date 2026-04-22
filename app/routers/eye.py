@@ -4,8 +4,8 @@ import httpx
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse, StreamingResponse
 
-from config import get_settings
-from services.eye_service import (
+from app.config import get_settings
+from app.services.eye_service import (
     proxy_eye_analyze_session,
     proxy_eye_download_run,
     proxy_eye_predict_from_features,

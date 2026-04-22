@@ -4,8 +4,8 @@ import httpx
 from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 
-from config import get_settings
-from services.voice_service import proxy_voice_analyze
+from app.config import get_settings
+from app.services.voice_service import proxy_voice_analyze
 
 router = APIRouter(prefix='/voice', tags=['voice'])
 

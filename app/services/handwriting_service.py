@@ -3,8 +3,8 @@ from __future__ import annotations
 from fastapi import HTTPException, Request
 from fastapi.responses import JSONResponse
 
-from config import get_settings
-from services.proxy_helpers import forward_json
+from app.config import get_settings
+from app.services.proxy_helpers import forward_json
 
 
 async def proxy_handwriting_predict(request: Request) -> JSONResponse:
