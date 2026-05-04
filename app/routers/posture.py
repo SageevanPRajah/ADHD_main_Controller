@@ -5,11 +5,7 @@ from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import JSONResponse
 
 from app.config import get_settings
-from app.services.posture_service import (
-    proxy_posture_predict,
-    proxy_posture_predict_features,
-    proxy_posture_predict_test,
-)
+from app.services.posture_service import proxy_posture_predict, proxy_posture_predict_test
 
 router = APIRouter(prefix='/posture', tags=['posture'])
 
@@ -23,11 +19,6 @@ async def posture_health() -> JSONResponse:
         return JSONResponse(status_code=response.status_code, content=response.json())
     except httpx.RequestError as exc:
         raise HTTPException(status_code=502, detail=f'Posture service unavailable: {exc}') from exc
-
-
-@router.post('/predict-features')
-async def posture_predict_features(request: Request) -> JSONResponse:
-    return await proxy_posture_predict_features(request)
 
 
 @router.post('/predict')
