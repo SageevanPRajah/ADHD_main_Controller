@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-py"
+}
+
+datasource db {
+  provider      = "postgresql"
+  url           = env("DATABASE_URL")
+  directUrl     = env("DIRECT_URL")
+}
+
+enum UserRole {
+  ADMIN
+  DOCTOR
+  PATIENT_PARENT
+  GUEST
+}
+
+enum UserStatus {
+  PENDING
+  ACTIVE
+  REJECTED
+}
+
+model User {
+  id               Int        @id @default(autoincrement())
+  role             UserRole
+  status           UserStatus @default(PENDING)
+
+  email            String?    @unique
+  fullName         String?
+  passwordHash     String?
+
+  medicalCouncilId String?    @unique
+  parentId         String?    @unique
+  googleSub        String?    @unique
+
+  phoneNumber      String?
+  specialization   String?
+  hospital         String?
+  notes            String?
+  pictureUrl       String?
+
+  doctorId         Int?
+  doctor           User?      @relation("DoctorPatients", fields: [doctorId], references: [id])
+  patients         User[]     @relation("DoctorPatients")
+
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
+
+  @@index([role])
+  @@index([status])
+  @@index([doctorId])
+}
